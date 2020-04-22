@@ -1,43 +1,30 @@
-import {
-    StringManipulationService,
-    NumberManipulationService
-} from "./main-service";
-
-class StringManipulations implements StringManipulationService {
-    print(word: string): void {
+"use strict";
+exports.__esModule = true;
+var StringManipulations = /** @class */ (function () {
+    function StringManipulations() {
+    }
+    StringManipulations.prototype.print = function (word) {
         //  Display the given string without any modifications (use console.log to print)
         console.log(word);
-
         //     Display the given string in uppercase.
         console.log(word.toUpperCase());
         //     - Display the given string in lowercase.
-
         console.log(word.toLowerCase());
-
         //     - Display the character at a particular position in a given string.
-
         console.log("The 5th character in the string '" + word + "' is" + word.charAt(5));
-
         //     - Concatenate the given string with another string.
-
         console.log(word.concat("Hello"));
-
-
         //     - Slice the given string and display.
-
         console.log(word.slice(6, -1));
-
         //     - Find the length of the given string.
-
         console.log(word.length);
-
         //     - printWithSpace(sentence:string) : void method should take string as input and display the given string by adding space between every character.
-    }
-    printWithSpace(sentence: string): void {
+    };
+    StringManipulations.prototype.printWithSpace = function (sentence) {
         console.log(sentence.split('').join(' '));
-    }
+    };
     //     - findVowel(str: string) : void should take string as input and display the number of vowels in a given string.
-    findVowel(str: string): void {
+    StringManipulations.prototype.findVowel = function (str) {
         var count = 0;
         for (var i = 0; i < str.length; i++) {
             if (str[i].toLowerCase() == 'a' || str[i].toLowerCase() == 'e' || str[i].toLowerCase() == 'i' || str[i].toLowerCase() == 'o' || str[i].toLowerCase() == 'u') {
@@ -45,20 +32,25 @@ class StringManipulations implements StringManipulationService {
             }
         }
         console.log(count);
+    };
+    return StringManipulations;
+}());
+// var word: string = "Hello Prograd!!!";
+// var stringManipulations = new StringManipulations;
+// stringManipulations.print(word);
+// stringManipulations.printWithSpace(word);
+// stringManipulations.findVowel(word);
+var NumberManipulations = /** @class */ (function () {
+    function NumberManipulations() {
     }
-
-}
-
-class NumberManipulations implements NumberManipulationService {
-    findPrime(num: number): void {
-        var flag: boolean = true;
+    NumberManipulations.prototype.findPrime = function (num) {
+        var flag = true;
         var n = num;
         for (var i = 2; i < Math.ceil(num / 2); i++) {
             if (num % i == 0) {
                 flag = false;
                 break;
             }
-
         }
         if (flag == true) {
             console.log(n + " is a prime number");
@@ -66,11 +58,9 @@ class NumberManipulations implements NumberManipulationService {
         else {
             console.log(n + " is not a prime number");
         }
-    }
-
-
-    findMagic(num: number): void {
-        var answer: number = 0, n: number = num;
+    };
+    NumberManipulations.prototype.findMagic = function (num) {
+        var answer = 0, n = num;
         console.log(num);
         while (n > 0) {
             answer = answer + n % 10;
@@ -81,21 +71,12 @@ class NumberManipulations implements NumberManipulationService {
             }
         }
         if (answer == 1) {
-            console.log(num + " Magic Number")
+            console.log(num + " Magic Number");
         }
-    }
-
-}
-var word: string = "Hello Prograd!!!";
-var stringManipulations = new StringManipulations;
-stringManipulations.print(word);
-
-stringManipulations.printWithSpace(word);
-stringManipulations.findVowel(word);
-
-
-
-var numbr: number = 199;
+    };
+    return NumberManipulations;
+}());
+var numbr = 199;
 var numManipulations = new NumberManipulations();
 numManipulations.findPrime(numbr);
 numManipulations.findMagic(numbr);
